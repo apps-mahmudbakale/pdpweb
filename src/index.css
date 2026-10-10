@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-800 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-green-600 ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-green-700 text-white;
+  }
+}
+
+@layer components {
+  /* Tricolour rule: green / white / red, per the party constitution. */
+  .rule-tricolour {
+    @apply h-1 w-full bg-gradient-to-r from-green-600 via-white to-crimson-600;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
